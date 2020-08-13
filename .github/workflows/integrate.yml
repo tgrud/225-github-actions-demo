@@ -25,7 +25,9 @@ jobs:
       # - run: git checkout -b ${{ github.base_ref }}_${{ github.head_ref }} ${{ github.base_ref }}
       ## - run: git merge origin/${{ github.head_ref }}
       # 
-      - run: git merge ${{ github.head_ref }}
+      # - run: git merge ${{ github.head_ref }}
+      - run: git merge origin/${{ github.head_ref }}
+      #
       #
       # # - run: git push --set-upstream origin master_test1
       #
