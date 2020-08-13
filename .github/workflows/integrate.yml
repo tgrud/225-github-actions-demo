@@ -27,7 +27,8 @@ jobs:
       - run: git branch -a
       - run: git log
       - run: git diff
-      - run: git status 
+      - run: git status
+      - run: cat public/404.html
       # - run: git fetch --all #
       # - run: git pull origin master
       # - run: git branch --show-current # odd return... headless?
@@ -45,7 +46,8 @@ jobs:
       # - run: git add . # this just adds all node modules, .gitignore not present, so these are "new"
       # - run: git diff
       # - run: git status
-      - run: cat public/404.html
+      - run: cat public/404.html # from branch
+      # TODO: can we check out master?
       #
       - run: git checkout origin/${{ github.head_ref }}
       - run: git branch --show-current
