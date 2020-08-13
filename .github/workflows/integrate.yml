@@ -33,7 +33,7 @@ jobs:
         with:
           type: now
           # from_branch: development
-          from_branch: ${{ github.head_ref }}
+          # from_branch: ${{ github.head_ref }}
           # target_branch: staging
           target_branch: ${{ github.base_ref }}_${{ github.head_ref }}
           github_token: ${{ github.token }}
