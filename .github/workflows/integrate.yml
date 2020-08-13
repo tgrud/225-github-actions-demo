@@ -28,8 +28,8 @@ jobs:
       # - run: git fetch --all #
       #
       #
-      - run: git checkout ${{ github.head_ref }}
-      - run: git checkout ${{ github.base_ref }}_${{ github.head_ref }}
+      # - run: git checkout ${{ github.head_ref }}
+      # - run: git checkout ${{ github.base_ref }}_${{ github.head_ref }}
       #
       - run: git checkout origin/${{ github.head_ref }}
       - run: git checkout origin/${{ github.base_ref }}_${{ github.head_ref }}
