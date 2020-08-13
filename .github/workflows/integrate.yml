@@ -41,9 +41,12 @@ jobs:
       - run: git branch -a
       - run: git log
       - run: git diff
-      - run: git status 
+      - run: git status
+      - run: git add .
+      - run: git diff
+      - run: git status
       #
-      - run: git checkout ${{ github.head_ref }}
+      - run: git checkout origin/${{ github.head_ref }}
       - run: git branch --show-current
       # - run: git checkout ${{ github.base_ref }}_${{ github.head_ref }}
       #
