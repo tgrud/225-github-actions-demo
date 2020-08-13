@@ -24,6 +24,7 @@ jobs:
       # - run: git pull origin master
       # - run: git branch --show-current # odd return... headless?
       - run: git checkout -b ${{ github.base_ref }}_${{ github.head_ref }}
+      - run: git branch --show-current
       # - run: git checkout -b ${{ github.base_ref }}_${{ github.head_ref }} ${{ github.base_ref }}
       ## - run: git merge origin/${{ github.head_ref }}
       # 
@@ -32,7 +33,8 @@ jobs:
       - run: git branch -a
       - run: git log
       #
-      # - run: git checkout ${{ github.head_ref }}
+      - run: git checkout ${{ github.head_ref }}
+      - run: git branch --show-current
       # - run: git checkout ${{ github.base_ref }}_${{ github.head_ref }}
       #
       # - run: git checkout origin/${{ github.head_ref }}
