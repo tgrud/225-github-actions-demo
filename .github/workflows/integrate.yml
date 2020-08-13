@@ -17,7 +17,7 @@ jobs:
           node-version: 12
       - run: npm ci
       - run: echo ${{ github.head_ref }} #
-      - run: git fetch --all #
+      # - run: git fetch --all #
       # - run: git pull origin master
       # - run: git branch --show-current # odd return... headless?
       - run: git checkout -b ${{ github.base_ref }}_${{ github.head_ref }}
