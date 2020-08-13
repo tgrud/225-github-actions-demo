@@ -30,7 +30,7 @@ jobs:
           from_branch: ${{ github.head_ref }}
           # target_branch: staging
           target_branch: ${{ github.base_ref }}
-          # github_token: ${{ github.token }}
+          github_token: ${{ github.token }}
       # TODO: if git conflict fail
       # TODO: if no git conflict continue / ok
       # TODO: git -d ${{ github.base_ref }}_${{ github.head_ref }}
