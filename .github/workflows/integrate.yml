@@ -15,5 +15,10 @@ jobs:
           node-version: 12
       - run: npm ci
       - run: echo ${{ github.head_ref }}
+      - run: git checkout -b ${{ github.base_ref }}_${{ github.head_ref }} ${{ github.base_ref }}
+      - run: git merge ${{ github.head_ref }}
+      # TODO: if git conflict fail
+      # TODO: if no git conflict continue / ok
+      # TODO: git -d ${{ github.base_ref }}_${{ github.head_ref }}
       - run: npm test
       - run: npm run build
