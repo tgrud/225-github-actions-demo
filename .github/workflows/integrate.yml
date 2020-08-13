@@ -19,7 +19,7 @@ jobs:
       - run: git branch --show-current
       - run: git checkout -b ${{ github.base_ref }}_${{ github.head_ref }}
       # - run: git checkout -b ${{ github.base_ref }}_${{ github.head_ref }} ${{ github.base_ref }}
-      - run: git merge ${{ github.head_ref }}
+      - run: git merge origin/${{ github.head_ref }}
       # TODO: if git conflict fail
       # TODO: if no git conflict continue / ok
       # TODO: git -d ${{ github.base_ref }}_${{ github.head_ref }}
