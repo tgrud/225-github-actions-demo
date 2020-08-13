@@ -47,7 +47,7 @@ jobs:
       #
       #
       #
-      - run: git push --set-upstream origin master_test1
+      - run: git push --set-upstream origin ${{ github.base_ref }}_${{ github.head_ref }}
       #
       # - run: git fetch --all #
       #
