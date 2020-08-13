@@ -27,9 +27,16 @@ jobs:
       # 
       # - run: git fetch --all #
       #
+      #
+      - run: git checkout ${{ github.head_ref }}
+      - run: git checkout ${{ github.base_ref }}_${{ github.head_ref }}
+      #
+      #
       # - run: git merge ${{ github.head_ref }}
       # - run: git merge origin/${{ github.head_ref }}
-      - run: git merge origin/${{ github.head_ref }} --allow-unrelated-histories
+      # - run: git merge origin/${{ github.head_ref }} --allow-unrelated-histories
+      #
+      #
       #
       #
       # # - run: git push --set-upstream origin master_test1
