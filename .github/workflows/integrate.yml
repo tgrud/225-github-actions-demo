@@ -27,6 +27,7 @@ jobs:
       # 
       # - run: git fetch --all #
       #
+      - run: echo git branch -a
       #
       # - run: git checkout ${{ github.head_ref }}
       # - run: git checkout ${{ github.base_ref }}_${{ github.head_ref }}
