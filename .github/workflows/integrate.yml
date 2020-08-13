@@ -19,7 +19,13 @@ jobs:
       - run: git diff
       - run: git status
       - run: cat public/404.html
-            
+      - run: git checkout -b ${{ github.event.pull_request.head.sha }}_${{ github.head_ref }}
+      - run: git branch --show-current
+      - run: git branch -a
+      - run: git log
+      - run: git diff
+      - run: git status
+      - run: cat public/404.html
             
             
             
