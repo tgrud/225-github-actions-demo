@@ -35,8 +35,8 @@ jobs:
       # - run: git checkout ${{ github.head_ref }}
       # - run: git checkout ${{ github.base_ref }}_${{ github.head_ref }}
       #
-      - run: git checkout origin/${{ github.head_ref }}
-      - run: git checkout origin/${{ github.base_ref }}_${{ github.head_ref }}
+      # - run: git checkout origin/${{ github.head_ref }}
+      # - run: git checkout origin/${{ github.base_ref }}_${{ github.head_ref }}
         
       #
       #
@@ -47,19 +47,19 @@ jobs:
       #
       #
       #
-      # # - run: git push --set-upstream origin master_test1
+      - run: git push --set-upstream origin master_test1
       #
       # - run: git fetch --all #
       #
-      #- name: Merge ${{ github.head_ref }} -> ${{ github.base_ref }}_${{ github.head_ref }}
-      #  uses: devmasx/merge-branch@v1.3.0
-      #  with:
-      #    type: now
-      #    # from_branch: development
-      #    # from_branch: ${{ github.head_ref }}
-      #    # target_branch: staging
-      #    target_branch: ${{ github.base_ref }}_${{ github.head_ref }}
-      #    github_token: ${{ github.token }}
+      - name: Merge ${{ github.head_ref }} -> ${{ github.base_ref }}_${{ github.head_ref }}
+        uses: devmasx/merge-branch@v1.3.0
+        with:
+          type: now
+          # from_branch: development
+          from_branch: ${{ github.head_ref }}
+          # target_branch: staging
+          target_branch: ${{ github.base_ref }}_${{ github.head_ref }}
+          github_token: ${{ github.token }}
       #
       # TODO: if git conflict fail
       # TODO: if no git conflict continue / ok
