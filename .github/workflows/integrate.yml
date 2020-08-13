@@ -26,6 +26,8 @@ jobs:
       - run: git branch --show-current
       - run: git branch -a
       - run: git log
+      - run: git diff
+      - run: git status 
       # - run: git fetch --all #
       # - run: git pull origin master
       # - run: git branch --show-current # odd return... headless?
@@ -38,6 +40,8 @@ jobs:
       #
       - run: git branch -a
       - run: git log
+      - run: git diff
+      - run: git status 
       #
       - run: git checkout ${{ github.head_ref }}
       - run: git branch --show-current
