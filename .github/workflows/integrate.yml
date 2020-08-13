@@ -10,6 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+      # - uses: actions/checkout@master
       - uses: actions/setup-node@v1
         with:
           node-version: 12
@@ -17,10 +18,19 @@ jobs:
       - run: echo ${{ github.head_ref }} #
       - run: git fetch --all #
       # - run: git pull origin master
-      - run: git branch --show-current
+      # - run: git branch --show-current # odd return... headless?
       - run: git checkout -b ${{ github.base_ref }}_${{ github.head_ref }}
       # - run: git checkout -b ${{ github.base_ref }}_${{ github.head_ref }} ${{ github.base_ref }}
-      - run: git merge origin/${{ github.head_ref }}
+      ## - run: git merge origin/${{ github.head_ref }}
+      - name: Merge development -> staging
+        uses: devmasx/merge-branch@v1.3.0
+        with:
+          type: now
+          # from_branch: development
+          from_branch: ${{ github.head_ref }}
+          # target_branch: staging
+          target_branch: ${{ github.base_ref }}
+          github_token: ${{ github.token }}
       # TODO: if git conflict fail
       # TODO: if no git conflict continue / ok
       # TODO: git -d ${{ github.base_ref }}_${{ github.head_ref }}
