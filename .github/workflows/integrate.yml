@@ -20,6 +20,12 @@ jobs:
           node-version: 12
       - run: npm ci
       - run: echo ${{ github.head_ref }} #
+
+
+
+      - run: git branch --show-current
+      - run: git branch -a
+      - run: git log
       # - run: git fetch --all #
       # - run: git pull origin master
       # - run: git branch --show-current # odd return... headless?
