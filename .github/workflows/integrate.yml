@@ -11,6 +11,20 @@ jobs:
     steps:
       ####
       - uses: actions/checkout@v2
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+      - run: git branch --show-current
+      - run: git branch -a
+      - run: git log
+      - run: git diff
+      - run: git status
+      - run: cat public/404.html
+            
+            
+            
+            
+            
+      - uses: actions/checkout@v2
       #
       #  with: ${{ github.head_ref }} # Non valid template? fails
       # - uses: actions/checkout@v1
