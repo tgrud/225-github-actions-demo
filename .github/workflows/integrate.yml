@@ -9,19 +9,11 @@ jobs:
   test_pull_request:
     runs-on: ubuntu-latest
     steps:
-      ######
       - uses: actions/checkout@v2
-      #
-      #  with: ${{ github.head_ref }} # Non valid template? fails
-      # - uses: actions/checkout@v1
-      # - uses: actions/checkout@master
       - uses: actions/setup-node@v1
         with:
           node-version: 12
       - run: npm ci
-      - run: echo ${{ github.head_ref }} #
-
-
 
       - run: git branch --show-current
       - run: git branch -a
@@ -29,12 +21,6 @@ jobs:
       - run: git diff
       - run: git status
       - run: cat public/404.html
-      # - run: git fetch --all #
-      # - run: git pull origin master
-      # - run: git branch --show-current # odd return... headless?
-     
-      # TODO: if git conflict fail
-      # TODO: if no git conflict continue / ok
-      # TODO: git -d ${{ github.base_ref }}_${{ github.head_ref }}
+
       - run: npm test
       - run: npm run build
