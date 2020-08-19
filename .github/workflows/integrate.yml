@@ -19,7 +19,7 @@ jobs:
           middle_name: The
           Last_Name: Octocat
       - name: Test secret
-        run: echo ./scripts/test.sh
+        run: ./scripts/test.sh
         env:
           shh: ${{ secrets.TIM_SECRET }}
           CYPRESS_DEV_EMAIL: test@test.com
