@@ -18,12 +18,17 @@ jobs:
           FIRST_NAME: Mona
           middle_name: The
           Last_Name: Octocat
-      - name: Test secret
+      - name: Test env
         run: node ./scripts/test2.js
         env:
           shh: ${{ secrets.TIM_SECRET }}
           CYPRESS_DEV_EMAIL: test@test.com
           CYPRESS_DEV_PASSWORD: Psw 
+      - name: Test secret
+        run: node ./scripts/test2.js
+        env:
+          CYPRESS_DEV_EMAIL: ${{ secrets.TIM_SECRET }}
+          CYPRESS_DEV_PASSWORD: ${{ secrets.TIM_SECRET }}
       - run: npm ci
       - run: testVar="TIM"
       - run: echo $testVar
