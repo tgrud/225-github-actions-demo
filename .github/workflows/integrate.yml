@@ -12,8 +12,17 @@ jobs:
       - uses: actions/setup-node@v1
         with:
           node-version: 12
+      - name: Test env
+        run: echo Hello world $FIRST_NAME $middle_name $Last_Name!
+        env:
+          FIRST_NAME: Mona
+          middle_name: The
+          Last_Name: Octocat
+      - name: Test secret
+        run: echo Hello world $shh $middle_name $Last_Name!
+        env:
+          shh: ${{ secrets.TIM_SECRET }}
       - run: npm ci
-      - run: echo ${{ secrets.TIM_SECRET }}} 
       - run: testVar="TIM"
       - run: echo $testVar
       - run: git branch --show-current
