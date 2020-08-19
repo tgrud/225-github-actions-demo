@@ -5,4 +5,4 @@
 #devPassword=$(echo $testUser | jq -r .devPassword);
 #vue-cli-service test:e2e --env TESTER_EMAIL=$testUserEmail,TESTER_PASSWORD=$testUserPassword,DEV_EMAIL=$devEmail,DEV_PASSWORD=$devPassword;
 
-echo tim
+echo email: $CYPRESS_DEV_EMAIL and password: $CYPRESS_DEV_PASSWORD
