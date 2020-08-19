@@ -19,7 +19,7 @@ jobs:
           middle_name: The
           Last_Name: Octocat
       - name: Test secret
-        run: echo Hello world $shh $middle_name $Last_Name!
+        run: echo Hello world $shh
         env:
           shh: ${{ secrets.TIM_SECRET }}
       - run: npm ci
