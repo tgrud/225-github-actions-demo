@@ -19,9 +19,11 @@ jobs:
           middle_name: The
           Last_Name: Octocat
       - name: Test secret
-        run: echo Hello world $shh
+        run: echo ./scripts/test.sh
         env:
           shh: ${{ secrets.TIM_SECRET }}
+          CYPRESS_DEV_EMAIL: test@test.com
+          CYPRESS_DEV_PASSWORD: Psw 
       - run: npm ci
       - run: testVar="TIM"
       - run: echo $testVar
