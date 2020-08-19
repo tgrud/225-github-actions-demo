@@ -13,7 +13,7 @@ jobs:
         with:
           node-version: 12
       - run: npm ci
-
+      - run: echo ${{ TIM_SECRET }}} 
       - run: testVar="TIM"
       - run: echo $testVar
       - run: git branch --show-current
