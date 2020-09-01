@@ -32,6 +32,13 @@ jobs:
       - run: npm ci
       - run: testVar="TIM"
       - run: echo $testVar
+      #
+      - run: echo "${{ github.base_ref }}"
+      - run: echo "${{ github.head_ref }}"
+      #
+      - run: echo "${{ github.event.pull_request.head.ref }}"
+      - run: echo "${{ github.event.pull_request.base.ref }}"
+      #
       - run: git branch --show-current
       - run: git branch -a
       - run: git log
