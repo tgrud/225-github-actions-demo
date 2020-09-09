@@ -4,7 +4,6 @@ on:
   pull_request:
     branches: [ master, test2 ]
 
-
 jobs:
   test_pull_request:
     runs-on: ubuntu-latest
@@ -13,7 +12,40 @@ jobs:
       - uses: actions/setup-node@v1
         with:
           node-version: 12
+      - name: Test env
+        run: echo Hello world $FIRST_NAME $middle_name $Last_Name!
+        env:
+          FIRST_NAME: Mona
+          middle_name: The
+          Last_Name: Octocat
+      - name: Test env
+        run: node ./scripts/test2.js
+        env:
+          shh: ${{ secrets.TIM_SECRET }}
+          CYPRESS_DEV_EMAIL: test@test.com
+          CYPRESS_DEV_PASSWORD: Psw 
+      - name: Test secret
+        run: node ./scripts/test2.js
+        env:
+          CYPRESS_DEV_EMAIL: ${{ secrets.TIM_SECRET }}
+          CYPRESS_DEV_PASSWORD: ${{ secrets.TIM_SECRET }}
       - run: npm ci
-      - run: echo ${{ github.head_ref }}
+      - run: testVar="TIM"
+      - run: echo $testVar
+      #
+      - run: echo "${{ github.base_ref }}"
+      - run: echo "${{ github.head_ref }}"
+      #
+      - run: echo "${{ github.event.pull_request.head.ref }}"
+      - run: echo "${{ github.event.pull_request.base.ref }}"
+      #
+      - run: echo "${{ github.event.pull_request.base.sha }}"
+      #
+      - run: git branch --show-current
+      - run: git branch -a
+      - run: git log
+      - run: git status
+      - run: cat public/404.html
+
       - run: npm test
       - run: npm run build
